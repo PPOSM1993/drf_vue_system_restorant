@@ -1,3 +1,0 @@
-ALLOWED_HOSTS = [""]
-
-#Debes agregar la direccion ip de tu maquina
