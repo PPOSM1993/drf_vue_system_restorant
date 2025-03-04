@@ -1,18 +1,20 @@
 from rest_framework import serializers
-from .models import Receta
+from .models import Recetas
 from dotenv import load_dotenv
 import os
 
-class RecetaSerializer(serializers.ModelSerializer):
+
+class RecetasSerializer(serializers.ModelSerializer):
+    #categoria = serializers.CharField(source='categoria.nombre')
+    #categoria = serializers.ReadOnlyField(source='categorias.nombre')
+    #foto = serializers.SerializerMethodField()
+    #foto = serializers.ImageField(use_url=True)
+    fecha = serializers.DateTimeField(format="%d/%m/%Y")#13/10/2025
     
-    categoria = serializers.ReadOnlyField(source='categoria.nombre')
-    fecha = serializers.DateTimeField(format="%d-%m-%Y")
-    imagen = serializers.SerializerMethodField()
     class Meta:
-        model = Receta
-        fields = ('id', 'nombre', 'slug', 'tiempo', 'descripcion', 'fecha', 'categoria','categoria_id', 'imagen')
-    
+        model = Recetas
+        fields = ("id", "nombre", "slug", "tiempo", "descripcion", "fecha", "categoria", "categoria_id", "foto")
+        
     
     def get_imagen(self, obj):
-        load_dotenv()
-        return f"{os.getenv('BASE_URL')}uploads/recetas/{obj.foto}"
+        return f"{os.getenv("BASE_URL")}uploads/recetas/{obj.foto}"

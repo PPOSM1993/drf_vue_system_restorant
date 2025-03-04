@@ -33,7 +33,6 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path('admin/', admin.site.urls),
-    path('', include('apps.example.urls')),
     path('api/', include('apps.categoria.urls')),
     path('api/', include('apps.recetas.urls')),
 ]

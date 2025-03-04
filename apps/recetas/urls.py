@@ -6,5 +6,5 @@ urlpatterns = [
 ]
 
 router = DefaultRouter()
-router.register('recetas', views.RecetaViewSet, basename='recetas')
+router.register('recetas', views.RecetasViewSet, basename='recetas')
 urlpatterns += router.urls
