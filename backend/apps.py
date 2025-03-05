@@ -16,5 +16,6 @@ INSTALLED_APPS = [
     #LOCAL APPS
     'apps.example',
     'apps.categoria',
-    'apps.recetas'
+    'apps.recetas',
+    'apps.contacto',
 ]
