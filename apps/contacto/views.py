@@ -61,3 +61,6 @@ class Clase1(APIView):
 
         
         return JsonResponse({"estado":"ok", "mensaje":"Se crea el registro exitosamente"}, status=HTTPStatus.OK)
+    
+    
+    

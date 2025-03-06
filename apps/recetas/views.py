@@ -10,6 +10,7 @@ from django.http import JsonResponse
 import os
 from datetime import datetime
 from django.core.files.storage import FileSystemStorage
+from apps.seguridad.decorators import logueado
 
 # Create your views here.
 class RecetasViewSet(viewsets.ModelViewSet):
@@ -17,11 +18,14 @@ class RecetasViewSet(viewsets.ModelViewSet):
     serializer_class = RecetasSerializer
     permission_classes = [AllowAny]
     
+    
+    #@logueado()
     def list(self, request):
         queryset = Recetas.objects.order_by('-id').all()
         serializer = RecetasSerializer(queryset, many=True)
         return Response(serializer.data)
     
+    @logueado()
     def create(self, request, *args, **kwargs):
         serializer = RecetasSerializer(data=request.data)
         if serializer.is_valid():
@@ -29,6 +33,7 @@ class RecetasViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @logueado()
     def destroy(self, request, pk=None):
         try:
             data = Recetas.objects.filter(id=id).get()

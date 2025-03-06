@@ -18,4 +18,5 @@ INSTALLED_APPS = [
     'apps.categoria',
     'apps.recetas',
     'apps.contacto',
+    'apps.seguridad',
 ]
