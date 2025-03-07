@@ -19,4 +19,5 @@ INSTALLED_APPS = [
     'apps.recetas',
     'apps.contacto',
     'apps.seguridad',
+    'apps.recetas_helper',
 ]

@@ -37,6 +37,7 @@ urlpatterns = [
     path('api/', include('apps.recetas.urls')),
     path('api/', include('apps.contacto.urls')),
     path('api/', include('apps.seguridad.urls')),
+    path('api/', include('apps.recetas_helper.urls')),
 ]
 
 

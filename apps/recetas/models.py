@@ -1,17 +1,17 @@
 from django.db import models
 from autoslug import AutoSlugField
 from apps.categoria.models import Categoria
+from django.contrib.auth.models import User
 
 
 # Create your models here.
-
 class Recetas(models.Model):
-    # Create your models here.
-    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)#default=1
+    user = models.ForeignKey(User, models.DO_NOTHING, default=1)
+    categoria = models.ForeignKey(Categoria, models.DO_NOTHING)#default=1
     nombre = models.CharField(max_length=100, null=False)
     slug = AutoSlugField(populate_from='nombre', max_length=100)
     tiempo = models.CharField(max_length=100, null=True)
-    foto = models.ImageField(upload_to='recetas/', null=True, blank=True)
+    foto = models.CharField(max_length=100, null=True)
     descripcion = models.TextField()
     fecha = models.DateTimeField(auto_now=True)
     
