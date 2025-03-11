@@ -1,7 +1,14 @@
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
-    
+    'http://192.168.56.1:5173',
+]  
+CORS_ORIGIN_REGEX_WHITELIST = [
+    'http://192.168.56.1:5173',
 ]
-CORS_ALLOWED_ORIGINS = [
+CORS_ALLOWED_ORIGINS=[
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://192.168.1.15:5173',
+    'http://192.168.56.1:5173'
 ]
